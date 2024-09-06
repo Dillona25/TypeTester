@@ -20,7 +20,8 @@ module.exports = {
         nunito: ["var(--font-nunito)"],
       },
       colors: {
-        primary: "#e849fe ",
+        primary: "#A762FF",
+        red: "#FF6767",
       },
     },
   },

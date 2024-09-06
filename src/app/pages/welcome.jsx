@@ -1,12 +1,12 @@
-import Button from "../components/buttons";
+import Button from "../components/button/buttons";
 import { FaLocationArrow } from "react-icons/fa";
 
 export const Welcome = () => {
   return (
-    <div className="h-screen w-full bg-white bg-grid-black/[0.08] relative flex flex-col items-center justify-center">
+    <div className="h-screen w-full bg-white bg-grid-black/[0.08] relative flex items-center justify-center">
       <div className="absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_100%,black)]"></div>
-      <div className="max-w-[1350px]">
-        <div className="flex flex-col">
+      <div className="max-w-[1400px]">
+        <div className="flex">
           <div className="flex flex-col gap-3 text-center max-w-[800px]">
             <h1 className="font-nunito text-[70px] text-primary font-extrabold">
               Welcome to TypeTester
@@ -25,9 +25,6 @@ export const Welcome = () => {
             </div>
           </div>
         </div>
-        {/* <div className="bg-gray-100 h-[400px] w-[700px] rounded-xl m-auto mt-10 flex items-center justify-center">
-          <p>Demo video here</p>
-        </div> */}
       </div>
     </div>
   );

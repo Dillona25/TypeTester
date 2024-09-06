@@ -20,12 +20,6 @@ import { Welcome } from "./pages/welcome";
 import { useState } from "react";
 
 export default function Home() {
-  const [activeModal, setActiveModal] = useState("");
-
-  const handleSignupModal = () => {
-    setActiveModal("signup");
-  };
-
   return (
     <main
       className={`${poppins.variable} ${nunito.variable} relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto"`}

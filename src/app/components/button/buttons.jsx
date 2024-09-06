@@ -2,12 +2,13 @@
 
 import React from "react";
 
-const Button = ({ variant = "primary", text, icon, ...props }) => {
+export const Button = ({ variant = "primary", text, icon, ...props }) => {
   const baseStyles =
-    "px-6 font-poppins flex items-center gap-2 py-3 rounded-2xl w-fit text-white cursor-pointer";
+    "px-10 py-3 rounded-md font-poppins hover:scale-105 ease-in-out duration-[.3s]";
   const variantStyles = {
-    primary: "bg-black",
-    secondary: "bg-white border-black text-black border-[1px]",
+    primary: "bg-primary text-white",
+    secondary: "border-black border-[1px]",
+    logout: "bg-red text-white",
   };
 
   return (
@@ -17,5 +18,3 @@ const Button = ({ variant = "primary", text, icon, ...props }) => {
     </button>
   );
 };
-
-export default Button;

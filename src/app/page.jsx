@@ -3,6 +3,8 @@ import { WelcomePage } from "./pages/welcome";
 import { useState } from "react";
 
 import { Poppins, Nunito } from "next/font/google";
+import { LoginModal } from "./components/login-modal/login-modal";
+import { SignupModal } from "./components/signup-modal/signup-modal";
 const poppins = Poppins({
   weight: ["400", "700"],
   style: ["normal"],
@@ -20,12 +22,33 @@ const nunito = Nunito({
 });
 
 export default function Home() {
+  const [activeModal, setActiveModal] = useState("");
+
+  const handleLoginModal = () => {
+    console.log("clicked");
+    setActiveModal("Login");
+  };
+
+  const handleSignupModal = () => {
+    setActiveModal("Signup");
+  };
+
+  const closeModal = () => {
+    console.log("clicked");
+    setActiveModal("");
+  };
+
   return (
     <main
       className={`${poppins.variable} ${nunito.variable} relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto"`}
     >
       <div className="w-full">
-        <WelcomePage />
+        <WelcomePage
+          handleLoginModal={handleLoginModal}
+          handleSignupModal={handleSignupModal}
+        />
+        {activeModal === "Login" && <LoginModal closeModal={closeModal} />}
+        {activeModal === "Signup" && <SignupModal closeModal={closeModal} />}
       </div>
     </main>
   );

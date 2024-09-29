@@ -6,6 +6,7 @@ export const Button = ({
   variant = "primary",
   text,
   icon,
+  onClick,
   className,
   ...props
 }) => {
@@ -19,6 +20,7 @@ export const Button = ({
 
   return (
     <button
+      onClick={onClick}
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       {...props}
     >

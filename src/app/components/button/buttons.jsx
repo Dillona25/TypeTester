@@ -2,9 +2,15 @@
 
 import React from "react";
 
-export const Button = ({ variant = "primary", text, icon, ...props }) => {
+export const Button = ({
+  variant = "primary",
+  text,
+  icon,
+  className,
+  ...props
+}) => {
   const baseStyles =
-    "px-10 py-3 rounded-md font-poppins hover:scale-105 ease-in-out duration-[.3s]";
+    "px-10 gap-3 py-3 rounded-md font-poppins hover:scale-105 ease-in-out duration-[.3s]";
   const variantStyles = {
     primary: "bg-primary text-white",
     secondary: "border-black border-[1px]",
@@ -12,7 +18,10 @@ export const Button = ({ variant = "primary", text, icon, ...props }) => {
   };
 
   return (
-    <button className={`${baseStyles} ${variantStyles[variant]}`} {...props}>
+    <button
+      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      {...props}
+    >
       {text}
       <span className="text-sm">{icon}</span>
     </button>

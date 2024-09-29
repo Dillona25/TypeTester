@@ -23,6 +23,9 @@ module.exports = {
         primary: "#A762FF",
         red: "#FF6767",
       },
+      fontSize: {
+        VeryLarge: "70px",
+      },
     },
   },
   plugins: [

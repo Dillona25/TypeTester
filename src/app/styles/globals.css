@@ -24,6 +24,6 @@ h3 {
 
 p {
   @apply font-poppins;
-  @apply text-lg;
+  @apply text-sm;
   @apply tracking-wide;
 }

@@ -1,7 +1,7 @@
 import { IoCloseOutline } from "react-icons/io5";
-import { Form } from "../Form/Form";
-import { Modal } from "../modal/modal";
-import { Button } from "../button/buttons";
+import { Form } from "./Form";
+import { Modal } from "./modal";
+import { Button } from "./buttons";
 
 export const SignupModal = ({ closeModal }) => {
   return (

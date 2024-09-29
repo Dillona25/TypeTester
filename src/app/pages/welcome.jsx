@@ -1,5 +1,5 @@
 import { FaLocationArrow } from "react-icons/fa";
-import { Button } from "../components/button/buttons";
+import { Button } from "../components/buttons";
 
 export const WelcomePage = ({ handleLoginModal, handleSignupModal }) => {
   return (
@@ -26,7 +26,7 @@ export const WelcomePage = ({ handleLoginModal, handleSignupModal }) => {
               text="Signup"
             />
           </div>
-          <p className="mt-6 text-sm">
+          <p className="mt-6">
             Or <span className="underline cursor-pointer">continue</span> with
             no account.
           </p>

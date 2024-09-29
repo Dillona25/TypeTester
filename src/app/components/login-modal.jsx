@@ -1,6 +1,6 @@
-import { Button } from "../button/buttons";
-import { Form } from "../Form/Form";
-import { Modal } from "../modal/modal";
+import { Button } from "./buttons";
+import { Form } from "./Form";
+import { Modal } from "./modal";
 import { IoCloseOutline } from "react-icons/io5";
 
 export const LoginModal = ({ closeModal }) => {

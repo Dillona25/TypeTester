@@ -31,7 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${nunito.variable} antialiased`}>
-        {children}
+        <main
+          className={`relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto`}
+        >
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -1,4 +1,11 @@
-export const Modal = ({ className, children }) => {
+import { ReactNode } from "react";
+
+type Props = {
+  className?: string;
+  children?: ReactNode;
+};
+
+export const Modal = ({ className, children }: Props) => {
   return (
     <div className="modal fixed flex flex-col items-center bottom-0 inset-0 z-50 backdrop-blur-md sm:h-[100%] sm:w-[100%] bg-black bg-opacity-50">
       <div

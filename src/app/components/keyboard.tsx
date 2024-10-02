@@ -3,7 +3,7 @@ export const Keyboard = () => {
     "flex items-center justify-center h-[50px] w-[50px] bg-gray-100 rounded-md font-poppins text-sm";
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1">
       <div className="flex items-center gap-1 justify-center">
         <kbd className={kbdClass}>`</kbd>
         <kbd className={kbdClass}>1</kbd>

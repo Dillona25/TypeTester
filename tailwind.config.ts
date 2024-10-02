@@ -26,6 +26,9 @@ module.exports = {
       fontSize: {
         VeryLarge: "70px",
       },
+      backgroundImage: {
+        Menu: "url('/public/assets/Menu.svg')",
+      },
     },
   },
   plugins: [

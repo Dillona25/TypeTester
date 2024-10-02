@@ -1,5 +1,5 @@
 import { FaLocationArrow } from "react-icons/fa";
-import { Button } from "../app/components/buttons";
+import { Button } from "./components/buttons";
 
 type Props = {
   handleLoginModal?: () => void;

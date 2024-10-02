@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./styles/globals.css";
+import "../styles/globals.css";
 import { Poppins, Nunito } from "next/font/google";
 
 const poppins = Poppins({
@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} ${nunito.variable} antialiased`}>
         <main
-          className={`relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto`}
+          className={`relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto max-w-[1400px] p-5`}
         >
           {children}
         </main>

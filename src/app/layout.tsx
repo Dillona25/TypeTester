@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} ${nunito.variable} antialiased`}>
         <main
-          className={`relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto max-w-[1400px]`}
+          className={`relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto max-w-[1400px`}
         >
           {children}
         </main>

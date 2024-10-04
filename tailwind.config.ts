@@ -22,6 +22,7 @@ module.exports = {
       colors: {
         primary: "#A762FF",
         red: "#FF6767",
+        green: "#21B400",
       },
       fontSize: {
         VeryLarge: "70px",

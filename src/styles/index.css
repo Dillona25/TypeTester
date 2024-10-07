@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../vendor/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: bold;
+  font-weight: 800;
+  src: url("../vendor/fonts/Nunito-ExtraBold.ttf") format("truetype");
+}
+
+h1 {
+  @apply text-VeryLarge;
+  @apply font-extrabold;
+  @apply font-Nunito;
+  @apply text-primary;
+}
+
+h2 {
+  @apply text-primary;
+  @apply font-extrabold;
+  @apply text-5xl;
+}
+
+h3 {
+  @apply text-xl;
+  @apply tracking-widest;
+}
+
+p {
+  @apply text-sm;
+  @apply tracking-wide;
+}

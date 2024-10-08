@@ -1,98 +1,138 @@
+import { useEffect, useState } from "react";
+
 export const Keyboard = () => {
+  const [pressedKey, setPressedKey] = useState(null);
+
+  const handleKeyDown = (event) => {
+    setPressedKey(event.key.toLowerCase());
+  };
+
+  const handleKeyUp = () => {
+    setPressedKey(null);
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, []);
+
   const kbdClass =
-    "flex items-center justify-center h-[50px] w-[50px] bg-gray-100 rounded-md font-poppins text-sm";
+    "flex items-center justify-center h-[50px] rounded-md font-poppins text-sm";
+  const standardKeyClass = "w-[50px]"; // Standard key width
+  const largerKeyClass = "w-[100px]"; // Larger key width
+  const spaceBarClass = "w-[400px]"; // Spacebar width
+
+  const keysRow1 = [
+    "`",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "-",
+    "+",
+  ];
+  const keysRow2 = [
+    "Tab",
+    "q",
+    "w",
+    "e",
+    "r",
+    "t",
+    "y",
+    "u",
+    "i",
+    "o",
+    "p",
+    "[",
+    "]",
+    "\\",
+  ];
+  const keysRow3 = [
+    "Caps",
+    "a",
+    "s",
+    "d",
+    "f",
+    "g",
+    "h",
+    "j",
+    "k",
+    "l",
+    ";",
+    "'",
+    "Return",
+  ];
+  const keysRow4 = [
+    "Shift",
+    "z",
+    "x",
+    "c",
+    "v",
+    "b",
+    "n",
+    "m",
+    ",",
+    ".",
+    "/",
+    "Shift",
+  ];
+  const spaceBar = ["Space"];
+
+  // Handles special key cases like Backspace
+  const specialKeyMap = {
+    backspace: "Delete", // Map "Backspace" to "Delete"
+    enter: "Return",
+    " ": "Space", // Spacebar
+    capslock: "Caps",
+    tab: "Tab",
+    shift: "Shift",
+  };
+
+  const renderKey = (key, className = standardKeyClass) => {
+    const normalizedKey = specialKeyMap[pressedKey] || pressedKey;
+    return (
+      <kbd
+        key={key}
+        className={`${kbdClass} ${className} ${normalizedKey === key.toLowerCase() ? "bg-black text-white" : "bg-gray-100 text-black"}`}
+      >
+        {key}
+      </kbd>
+    );
+  };
 
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center gap-1 justify-center">
-        <kbd className={kbdClass}>`</kbd>
-        <kbd className={kbdClass}>1</kbd>
-        <kbd className={kbdClass}>2</kbd>
-        <kbd className={kbdClass}>3</kbd>
-        <kbd className={kbdClass}>4</kbd>
-        <kbd className={kbdClass}>5</kbd>
-        <kbd className={kbdClass}>6</kbd>
-        <kbd className={kbdClass}>7</kbd>
-        <kbd className={kbdClass}>8</kbd>
-        <kbd className={kbdClass}>9</kbd>
-        <kbd className={kbdClass}>0</kbd>
-        <kbd className={kbdClass}>-</kbd>
-        <kbd className={kbdClass}>+</kbd>
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[100px]`}
-        >
-          Delete
-        </kbd>
+        {keysRow1.map((key) => renderKey(key))}
+        {renderKey("Delete", largerKeyClass)} {/* Adjust for "Backspace" */}
       </div>
       <div className="flex items-center gap-1 justify-center">
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[100px]`}
-        >
-          Tab
-        </kbd>
-        <kbd className={kbdClass}>q</kbd>
-        <kbd className={kbdClass}>w</kbd>
-        <kbd className={kbdClass}>e</kbd>
-        <kbd className={kbdClass}>r</kbd>
-        <kbd className={kbdClass}>t</kbd>
-        <kbd className={kbdClass}>y</kbd>
-        <kbd className={kbdClass}>u</kbd>
-        <kbd className={kbdClass}>i</kbd>
-        <kbd className={kbdClass}>o</kbd>
-        <kbd className={kbdClass}>p</kbd>
-        <kbd className={kbdClass}>[</kbd>
-        <kbd className={kbdClass}>]</kbd>
-        <kbd className={kbdClass}>\</kbd>
+        {renderKey("Tab", largerKeyClass)}
+        {keysRow2.slice(1).map((key) => renderKey(key))}
       </div>
       <div className="flex items-center gap-1 justify-center">
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[100px]`}
-        >
-          Caps
-        </kbd>
-        <kbd className={kbdClass}>a</kbd>
-        <kbd className={kbdClass}>s</kbd>
-        <kbd className={kbdClass}>d</kbd>
-        <kbd className={kbdClass}>f</kbd>
-        <kbd className={kbdClass}>g</kbd>
-        <kbd className={kbdClass}>h</kbd>
-        <kbd className={kbdClass}>j</kbd>
-        <kbd className={kbdClass}>k</kbd>
-        <kbd className={kbdClass}>l</kbd>
-        <kbd className={kbdClass}>;</kbd>
-        <kbd className={kbdClass}>"</kbd>
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[100px]`}
-        >
-          Return
-        </kbd>
+        {renderKey("Caps", largerKeyClass)}
+        {keysRow3.slice(1, -1).map((key) => renderKey(key))}
+        {renderKey("Return", largerKeyClass)}
       </div>
       <div className="flex items-center gap-1 justify-center">
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[100px]`}
-        >
-          Shift
-        </kbd>
-        <kbd className={kbdClass}>z</kbd>
-        <kbd className={kbdClass}>x</kbd>
-        <kbd className={kbdClass}>c</kbd>
-        <kbd className={kbdClass}>v</kbd>
-        <kbd className={kbdClass}>b</kbd>
-        <kbd className={kbdClass}>n</kbd>
-        <kbd className={kbdClass}>m</kbd>
-        <kbd className={kbdClass}>,</kbd>
-        <kbd className={kbdClass}>.</kbd>
-        <kbd className={kbdClass}>/</kbd>
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[100px]`}
-        >
-          Shift
-        </kbd>
+        {renderKey("Shift", largerKeyClass)}
+        {keysRow4.slice(1, -1).map((key) => renderKey(key))}
+        {renderKey("Shift", largerKeyClass)}
       </div>
       <div className="flex items-center gap-1 justify-center">
-        <kbd
-          className={`flex items-center justify-center h-[50px] bg-gray-100 rounded-md font-poppins text-sm w-[400px]`}
-        ></kbd>
+        {renderKey("Space", spaceBarClass)}
       </div>
     </div>
   );

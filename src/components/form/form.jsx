@@ -1,3 +1,6 @@
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+
 export const Form = ({ children, onSubmit }) => {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-5 mt-5">
@@ -9,15 +12,15 @@ export const Form = ({ children, onSubmit }) => {
 Form.TextInput = ({ labelText, value, type, name, placeholder, onChange }) => {
   return (
     <div className="flex flex-col gap-2">
-      <label className="mt-3">{labelText}</label>
-      <input
+      <Label className="mt-3">{labelText}</Label>
+      <Input
         value={value}
         type={type}
         name={name}
         placeholder={placeholder}
         onChange={onChange}
         className="bg-gray-200 rounded-md text-black font-poppins p-3"
-      ></input>
+      ></Input>
     </div>
   );
 };

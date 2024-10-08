@@ -1,13 +1,13 @@
 import { Button } from "../components/buttons/buttons";
 import { Keyboard } from "../components/keyboard/keyboard";
-import { IoMenu } from "react-icons/io5";
+import { IoIosMenu } from "react-icons/io";
 
-export default function Dashboard() {
+export default function Dashboard({ handleMenu }) {
   return (
     <div className="h-screen flex flex-col gap-10 justify-center items-center">
       <div className="absolute top-0 p-3 flex jusify-between w-full">
         <button>
-          <IoMenu className="text-4xl text-gray-500" />
+          <IoIosMenu onClick={handleMenu} className="text-3xl font-bold" />
         </button>
         <h1 className="text-2xl m-auto">TypeTest</h1>
         <div className="rounded-full w-[50px] h-[50px] bg-gray-100"></div>

@@ -2,6 +2,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { Form } from "../form/form";
 import { Modal } from "./modal";
 import { Button } from "../buttons/buttons";
+import { FileUpload } from "../ui/file-upload";
 
 export const SignupModal = ({ closeModal }) => {
   return (
@@ -19,8 +20,9 @@ export const SignupModal = ({ closeModal }) => {
           placeholder="Password"
           type="password"
         />
-        <Form.TextInput labelText="Profile Photo" placeholder="Image Url" />
-        <Button variant="primary" className="mt-5" text="Login" />
+        {/* <Form.TextInput labelText="Profile Photo" placeholder="Image Url" /> */}
+        <FileUpload />
+        <Button variant="primary" className="mt-5" text="Signup" />
       </Form>
     </Modal>
   );
